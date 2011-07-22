@@ -10,12 +10,12 @@ module Backbone
                                       
       def inject_backbone
         inject_into_file "app/assets/javascripts/application.js", :before => "//= require_tree" do
-          "//= require underscore\n//= require backbone\n//= require views\n//= require backbone_rails_sync\n//= require backbone_datalink\n//= require backbone/#{application_name}\n"
+          "//= require underscore\n//= require backbone\n//= require atlas\n//= require jquery.i18n\n//= require views\n//= require backbone_rails_sync\n//= require backbone_datalink\n//= require backbone/#{application_name}\n"
         end
       end
     
       def create_dir_layout
-        %W{routers models views templates}.each do |dir|
+        %W{routers models views locales}.each do |dir|
           empty_directory "app/assets/javascripts/backbone/#{dir}" 
           create_file "app/assets/javascripts/backbone/#{dir}/.gitkeep" unless options[:skip_git]
         end

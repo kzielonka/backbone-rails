@@ -1,4 +1,7 @@
-class <%= model_namespace %> extends Backbone.Model
+class <%= model_namespace %> extends Backbone.Atlas.Model
+  initialize: (attributes) ->
+    @has attributes
+
   paramRoot: '<%= singular_table_name %>'
 
   defaults:
@@ -6,6 +9,6 @@ class <%= model_namespace %> extends Backbone.Model
     <%= attribute.name %>: null
 <% end -%>
   
-class <%= collection_namespace %>Collection extends Backbone.Collection
+class <%= collection_namespace %>Collection extends Backbone.Atlas.Collection
   model: <%= model_namespace %>
   url: '<%= route_url %>'
