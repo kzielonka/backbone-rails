@@ -1,6 +1,4 @@
 class <%= router_namespace %>Router extends Backbone.Router
-  initialize: (options) ->
-    
   routes:
   <% actions.each do |action| -%>
   "/<%= action %>": "<%= action %>"

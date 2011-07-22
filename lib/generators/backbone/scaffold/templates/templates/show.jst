@@ -1,9 +1,7 @@
-<% attributes.each do |attribute| -%>
-<p>
-  <b><%= attribute.human_name %>:</b>
-  <%%= <%= attribute.name %> %>
-</p>
-
-<% end -%>
-
-<a href="#/index">Back</a>
+%h1
+  Show
+  :js
+    = <%= singular_table_name %>
+ 
+%a{:href => "#/index"}  
+  Index

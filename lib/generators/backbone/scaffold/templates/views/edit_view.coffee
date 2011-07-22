@@ -10,15 +10,13 @@ class <%= view_namespace %>.EditView extends Backbone.View
     e.preventDefault()
     e.stopPropagation()
     
-    @options.model.save(null,
-      success:(model) =>
-        @options.model = model
-        window.location.hash = "/#{@options.model.id}"
+    this.model.save(null,
+      success:(data) =>
+        this.model = data
+        window.location.hash = "/#{this.model.id}"
     )
     
   render: ->
-    $(this.el).html(this.template(@options.model.toJSON() ))
-    
-    this.$("form").backboneLink(@options.model)
+    $(this.el).html(this.template({model:this.model}))
     
     return this

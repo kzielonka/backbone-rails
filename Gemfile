@@ -8,6 +8,8 @@ gem 'tilt', :git => "git://github.com/rtomayko/tilt.git"
 gem 'sprockets', "= 2.0.0.beta.10"
 # gem 'sprockets', :git => "git://github.com/sstephenson/sprockets.git"
 gem 'execjs', :git => "git://github.com/sstephenson/execjs.git"
+gem "haml", ">= 3.1.1"
+gem "haml-rails", ">= 0.3.4"
 
 gem 'sqlite3'
 gem 'sass'
@@ -17,7 +19,7 @@ gem 'jquery-rails'
 gem 'ejs'
 
 if RUBY_VERSION < '1.9'
-  gem "ruby-debug", ">= 0.10.3"
+#  gem "ruby-debug", ">= 0.10.3"
 else
   gem "ruby-debug19"
 end

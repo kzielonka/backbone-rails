@@ -17,21 +17,20 @@ class <%= view_namespace %>.NewView extends Backbone.View
   save: (e) ->
     e.preventDefault()
     e.stopPropagation()
-      
-    @options.model.unset("errors")
+    the_model = this.model
+    that = this
+    this.model.unset("errors")
     
-    @options.collection.create(@options.model.toJSON(), 
-      success: (model) =>
-        @options.model = model
-        window.location.hash = "/#{@options.model.id}"
+    this.model.create(this.model.toJSON(),
+      success: (data) =>
+        the_model = data
+        window.location.hash = "/#{the_model.id}"
         
       error: (model, jqXHR) =>
-        @options.model.set({errors: $.parseJSON(jqXHR.responseText)})
+        that.model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
     
   render: ->
-    $(this.el).html(this.template(@options.model.toJSON() ))
-    
-    this.$("form").backboneLink(@options.model)
+    $(this.el).html(this.template({model :this.model}))
     
     return this

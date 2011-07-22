@@ -1,3 +1,28 @@
+# Modified Backbone Rails
+
+Its modified Backbone Rails project to use haml templates for js template views. It also gives you access to haml filters that make using underscore templates easy.
+
+# HAML
+
+You can use :js filter or js helper in templates.
+
+Example:
+
+    :js
+      = model.get("value")
+      = model.get("name")
+
+    :js
+      if condition
+    .some_class
+      some text
+        = js(' model.get("value")')
+    :js
+      else
+    alternative text
+    :js
+      end
+
 # Backbone-Rails
 
 Easily setup and use backbone.js (0.5.0) with rails 3.1
@@ -11,7 +36,7 @@ This gem vendors the latest version of underscore.js and backbones.js for Rails 
 
 In your Gemfile, add this line:
 
-    gem "rails-backbone"
+    gem "rails-backbone", :git => "git://github.com/software-project/backbone-rails.git"
   
 Then run the following commands:
 
@@ -24,8 +49,9 @@ Running `rails g backbone:install` will create the following directory structure
   
     routers/
     models/
-    templates/
     views/
+
+Templates are saved to `app/views/model_name`:
     
 It will also create a toplevel app_name.coffee file to setup namespacing and setup initial requires.
     

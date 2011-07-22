@@ -4,19 +4,9 @@ class <%= view_namespace %>.IndexView extends Backbone.View
   template: JST["<%= jst 'index' %>"]
     
   initialize: () ->
-    _.bindAll(this, 'addOne', 'addAll', 'render');
-    
-    @options.<%= plural_name %>.bind('reset', this.addAll);
-   
-  addAll: () ->
-    @options.<%= plural_name %>.each(this.addOne)
-  
-  addOne: (<%= singular_name %>) ->
-    view = new <%= view_namespace %>.<%= singular_name.capitalize %>View({model : <%= singular_name %>})
-    this.$("tbody").append(view.render().el)
-       
+    _.bindAll(this, 'render');
+
   render: ->
-    $(this.el).html(this.template(<%= plural_name %>: this.options.<%= plural_name %>.toJSON() ))
-    @addAll()
+    $(this.el).html(this.template({collection: this.collection }))
     
     return this

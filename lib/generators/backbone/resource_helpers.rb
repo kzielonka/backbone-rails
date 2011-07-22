@@ -23,7 +23,7 @@ module Backbone
       end
       
       def jst(action)
-        "backbone/templates/#{plural_name}/#{action}"
+        "#{plural_name}_#{action}_jst"
       end
       
     end

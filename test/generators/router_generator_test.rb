@@ -15,7 +15,7 @@ class RouterGeneratorTest < Rails::Generators::TestCase
     
     %W{index edit}.each do |action|
       assert_file "#{backbone_path}/views/posts/#{action}_view.js.coffee"
-      assert_file "#{backbone_path}/templates/posts/#{action}.jst.ejs"
+      assert_file "app/views/posts/#{action}.jst.haml"
     end
   end
   
