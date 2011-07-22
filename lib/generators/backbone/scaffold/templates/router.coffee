@@ -38,3 +38,4 @@ class <%= router_namespace %>Router extends Backbone.Router
         error: ->
             alert("error")
     )
+new <%= router_namespace %>Router()

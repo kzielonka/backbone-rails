@@ -4,8 +4,9 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.<%= application_name.capitalize %> =
+window.<%= application_name.capitalize %> = {
   Models: {}
   Collections: {}
   Routers: {}
   Views: {}
+  }
