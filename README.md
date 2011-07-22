@@ -1,6 +1,6 @@
 # Modified Backbone Rails
 
-Its modified Backbone Rails project to use haml templates for js template views. It also gives you access to haml filters that make using underscore templates easy.
+Its modified Backbone Rails project to use haml templates for js template views. It also gives you access to haml filters that make using underscore templates easy. By default it generates Atlas models so you can use relations inside your model classes. Check: https://github.com/cubox/backbone-atlas for more details.
 
 # HAML
 
@@ -22,6 +22,23 @@ Example:
     alternative text
     :js
       end
+
+To use templates you need to add this:
+
+  before_filter :create_jst_templates_file
+
+to your ApplicationController.
+
+
+# I18n
+
+In your templates you can use I18n similar to native Rails I18n. Add yaml locale file to config/locales/ directory. Locale files should start with jst.
+Example
+
+    /your_app/config/locales/jst.en.yml
+
+This file will be transform to jquery.i18n dictionary and added to assets/javascripts/backbone/locales/. Remember it is json hash in javascript, so don't use any character that may damage file.
+For more information about using jquery.i18n go to: http://recursive-design.com/projects/jquery-i18n/
 
 # Backbone-Rails
 
@@ -48,6 +65,7 @@ Then run the following commands:
 Running `rails g backbone:install` will create the following directory structure under `app/assets/javascripts/backbone`:
   
     routers/
+    locales/
     models/
     views/
 
