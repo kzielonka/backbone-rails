@@ -1,7 +1,8 @@
 <%= view_namespace %> ||= {}
 
 class <%= view_namespace %>.<%= singular_name.capitalize %>View extends Backbone.View
-  template: JST["<%= jst singular_name %>"]
+  template: (attr) ->
+    JST.<%= jst singular_name %>(attr)
   
   events:
     "click .destroy" : "destroy"

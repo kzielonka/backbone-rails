@@ -1,7 +1,8 @@
 <%= view_namespace %> ||= {}
 
 class <%= view_namespace %>.IndexView extends Backbone.View
-  template: JST["<%= jst 'index' %>"]
+  template: (attr) ->
+    JST.<%= jst 'index' %>(attr)
     
   initialize: () ->
     _.bindAll(this, 'render');

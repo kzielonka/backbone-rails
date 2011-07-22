@@ -1,7 +1,8 @@
 <%= view_namespace %> ||= {}
 
-class <%= view_namespace %>.NewView extends Backbone.View    
-  template: JST["<%= jst 'new' %>"]
+class <%= view_namespace %>.NewView extends Backbone.View
+  template: (attr) ->
+    JST.<%= jst 'new' %>(attr)
   
   events:
     "submit #new-<%= singular_name %>": "save"

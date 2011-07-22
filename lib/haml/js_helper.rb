@@ -34,8 +34,8 @@ module JsHelper
   end
 
   def create_jst_templates_file
-    if ENV['RAILS_ENV'] != "production" || (ENV['RAILS_ENV'] == "production" && File.exists?(Rails.root.to_s + "/app/assets/javascripts/views.js"))
-      File.new(Rails.root.to_s + "/app/assets/javascripts/views.js", "w").write(get_templates)
+    if ENV['RAILS_ENV'] != "production" || (ENV['RAILS_ENV'] == "production" && File.exists?(Rails.root.to_s + "/vendor/assets/javascripts/views.js"))
+      File.new(Rails.root.to_s + "/vendor/assets/javascripts/views.js", "w").write(get_templates)
     end
   end
 end
