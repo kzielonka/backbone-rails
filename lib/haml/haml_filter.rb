@@ -127,9 +127,9 @@ module HamlJsTemplate
             " }"
           when /^each/
             options = line.split(' ')
-            "#{options[1] || "collection"}.each(function(#{options[2] || "item"}) {"
+            " #{options[1] || "collection"}.each(function(#{options[2] || "item"}) {"
           else
-            line
+            ' ' + line
         end
       end
 
