@@ -4,7 +4,8 @@ class <%= model_namespace %> extends Backbone.Atlas.Model
 
   url : ->
     base = '<%= plural_name %>'
-    if (this.isNew()) return base
+    if this.isNew()
+        return base
     return '<%= plural_name %>' + (base.charAt(base.length - 1) == '/' ? '' : '/') + this.id
 
 

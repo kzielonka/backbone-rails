@@ -1,7 +1,7 @@
 class <%= router_namespace %>Router extends Backbone.Router
   routes:
     "<%= plural_name %>/new": "new<%= class_name %>"
-    "<%= plural_name %>/index": "index"
+    "<%= plural_name %>": "index"
     "<%= plural_name %>/:id/edit": "edit"
     "<%= plural_name %>/:id": "show"
 

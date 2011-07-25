@@ -9,7 +9,11 @@ module ActionView
   end
 end
 
-ActionController::Base.send(:include, TemplateGenerator)
+#module Sprockets
+#  autoload :ViewTemplate,           "haml/template_generator"
+#end
+
+#ActionController::Base.send(:include, TemplateGenerator)
 
 
 module BackboneRails
