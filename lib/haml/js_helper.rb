@@ -50,7 +50,7 @@ module JsHelper
   end
 
   def template_tag template
-    text = ActionView::Base.new(lookup_context).render(:partial => template)
+    text = render(:partial => template)
     new_line = ""
     body = text.gsub(/<script>(.*?)<\/script>/, "")
 
